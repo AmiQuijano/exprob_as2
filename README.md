@@ -48,7 +48,7 @@ For solving the tasks mentioned above, a domain and problem file were creating w
 In addition, for each of the three actions, a ```.h``` and ```.cpp``` file were created for the action interface of the given action. Aruco marker detection ```.py``` script was done implementing OpenCV and Aruco libraries.
 
 Demo:
-[Watch/Download the video](video/exprob_as2_funcionality_proof_compressed.mp4)
+[Watch/Download the video](video/exprob_as2_funcionality_proof_compressed2.mp4)
 
 ## Visualization
 The execution of each action can be followed by the terminal, Gazebo and RViz:
