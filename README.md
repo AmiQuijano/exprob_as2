@@ -19,11 +19,11 @@ In 2 terminals run the following launch files:
 
 1. Gazebo, RViz, Gmapping and Move Base
    
-``` roslaunch exp_rob_assignment2 test.launch ```
+```roslaunch exp_rob_assignment2 test.launch```
 
 2. ROSplan nodes, Action interfacees, Aruco detection node and Finder of lowest marker-waypoint node
  
-``` roslaunch exp_rob_assignment2 test2.launch  ```
+```roslaunch exp_rob_assignment2 test2.launch```
 
 Note: the decision of splitting the launch in 2 launch files is because the Move Base launch file throws repeatedly warnings, which makes impossible to visualize other logs in the terminal regarding other nodes.
 
