@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+	
+<!-- gazebo and rviz-->
+<include file="$(find exp_rob_assignment2)/launch/gazebo_rviz.launch"/>
+
+<!-- control of robot motion -->
+<include file="$(find planning)/launch/gmapping.launch"></include>
+<include file="$(find planning)/launch/move_base.launch"></include>
+
+</launch>

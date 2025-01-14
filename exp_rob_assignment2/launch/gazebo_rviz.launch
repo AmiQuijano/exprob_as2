@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <!-- Load the robot description (Xacro) into the ROS Parameter Server -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find exp_rob_assignment2)/urdf/robot_camera_laser.xacro" />
+  
+  <!-- Launch the robot_state_publisher -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- Launch joint state publisher GUI for visualization -->
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+
+  <!-- Launch RViz for visualization -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find exp_rob_assignment2)/rviz/robot_camera.rviz" />
+
+  <!-- Launch Gazebo with the specified world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"> 
+    <arg name="world_name" value="$(find exp_rob_assignment2)/worlds/exprob_as2.world" />
+    <arg name="paused" value="false"/>
+  </include>
+  
+  <!-- Run Python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+	args="-urdf -model robot1 -param robot_description -Y 3.14159 -y 1.0"/> 
+
+</launch>
+

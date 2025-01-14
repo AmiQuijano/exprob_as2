@@ -1,0 +1,6 @@
+# Request: (Empty)
+---
+int32 marker_id
+string waypoint
+float32 x
+float32 y
