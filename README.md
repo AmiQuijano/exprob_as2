@@ -15,7 +15,7 @@ It requires previous installation of ROSplan (included in the ```rosplan``` pack
 ## How to run
 Clone this repo, which contains 4 ROS packages and a video folder, in the ```/src``` folder of a ROS workspace. Then build your workspace.
 
-In 2 terminals run the following launch files:
+In 3 terminals run the following launch files:
 
 1. Gazebo, RViz, Gmapping and Move Base
    
@@ -25,7 +25,17 @@ In 2 terminals run the following launch files:
  
 ``` roslaunch exp_rob_assignment2 test2.launch  ```
 
-Note: the decision of splitting the launch in 2 launch files is because the Move Base launch file throws repeatedly warnings, which makes impossible to visualize other logs in the terminal regarding other nodes.
+3. Call ROSplan services in this order
+
+```rosservice call /rosplan_problem_interface/problem_generation_server ```
+
+```rosservice call /rosplan_planner_interface/planning_server```
+
+```rosservice call /rosplan_parsing_interface/parse_plan```
+
+```rosservice call /rosplan_plan_dispatcher/dispatch_plan ```
+
+Note: the decision of splitting the launch files in 2 is because the Move Base launch file throws repeatedly warnings, which makes impossible to visualize other logs in the terminal regarding other nodes.
 
 ## Solution Approach
 First, a .xacro and .gazebo files where created to incorporate to a mobile robot a camera and a laser scanner.
