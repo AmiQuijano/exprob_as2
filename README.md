@@ -19,11 +19,11 @@ In 3 terminals run the following launch files:
 
 1. Gazebo, RViz, Gmapping and Move Base
    
-```roslaunch exp_rob_assignment2 test.launch```
+``` roslaunch exp_rob_assignment2 test.launch ```
 
 2. ROSplan nodes, Action interfacees, Aruco detection node and Finder of lowest marker-waypoint node
  
-```roslaunch exp_rob_assignment2 test2.launch```
+``` roslaunch exp_rob_assignment2 test2.launch  ```
 
 3. Call ROSplan services in this order
 
@@ -56,6 +56,7 @@ The execution of each action can be followed by the terminal, Gazebo and RViz:
 1. **Terminal**: It tells which new marker has been recognized (topic ```/detected_marker_id ```), the marker ID and its associated waypoint (topic ```/aruco/marker_waypoint_pairs```), the dispatched action (topic ```/rosplan_plan_dispatcher/action_dispatch```), and finally the activation of marker detection, goal position, predicate updates in the same terminal where ```test.launch``` is launched.
 2. **RViz**: Shows the robot, the camera feed, the highlighted recognized Aruco markers and the robot in the map (add Map from topic) of obstacles, free and unknown space.
 3. **Gazebo**: Shows the Gazebo world with the obstacles, the robot and the aruco markers in position.
+
 
 
 
