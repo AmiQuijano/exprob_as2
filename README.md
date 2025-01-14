@@ -25,23 +25,27 @@ In 2 terminals run the following launch files:
  
 ``` roslaunch exp_rob_assignment2 test2.launch  ```
 
-Note: the decision of splitting the launch in 2 launch files is because the Move Base launch file throws repeatedly warnings, which impossible to visualize other logs in the terminal regarding other nodes.
+Note: the decision of splitting the launch in 2 launch files is because the Move Base launch file throws repeatedly warnings, which makes impossible to visualize other logs in the terminal regarding other nodes.
 
 ## Solution Approach
-For solving this, a domain and problem file were creating with PDDL. 3 durative actions where created:
-* ```goto_waypoint``` for point 1.
-* ```rotate_and_detect``` for point 2.
-* ```goto_lowest_marker_wp``` for point 3.
+First, a .xacro and .gazebo files where created to incorporate to a mobile robot a camera and a laser scanner.
+
+For solving the tasks mentioned above, a domain and problem file were creating with PDDL. 3 durative actions where created:
+* ```goto_waypoint``` for task 1.
+* ```rotate_and_detect``` for task 2.
+* ```goto_lowest_marker_wp``` for task 3.
 
 In addition, for each of the three actions, a ```.h``` and ```.cpp``` file were created for the action interface of the given action. Aruco marker detection ```.py``` script was done implementing OpenCV and Aruco libraries.
 
 Demo:
-[Watch the video](video/exprob_as2_funcionality_proof_compressed.mp4)
+[Watch/Download the video](video/exprob_as2_funcionality_proof_compressed.mp4)
 
 ## Visualization
 The execution of each action can be followed by the terminal, Gazebo and RViz:
 
-1. **Terminal**: It tells which new marker has been recognized (topic ```/detected_marker_id ```), the marker ID and its associated waypoint (topic ```/aruco/marker_waypoint_pairs```), the dispatched action (topic ```/rosplan_plan_dispatcher/action_dispatch```), and finally the activation of marker detection, goal position, predicate updates in the same terminal where ```test.launch``` is launched
+1. **Terminal**: It tells which new marker has been recognized (topic ```/detected_marker_id ```), the marker ID and its associated waypoint (topic ```/aruco/marker_waypoint_pairs```), the dispatched action (topic ```/rosplan_plan_dispatcher/action_dispatch```), and finally the activation of marker detection, goal position, predicate updates in the same terminal where ```test.launch``` is launched.
+2. **RViz**: Shows the robot, the camera feed, the highlighted recognized Aruco markers and the robot in the map (add Map from topic) of obstacles, free and unknown space.
+3. **Gazebo**: Shows the Gazebo world with the obstacles, the robot and the aruco markers in position.
 
 
 
